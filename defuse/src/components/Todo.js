@@ -13,9 +13,9 @@ function Todo({ todo, toggleComplete, removeTodo }) {
 	return (
 		<div>
 			{/* <input type="checkbox" onClick={handleCheckboxClick} /> */}
-			<li className="bg-list">{todo.task}</li>
+
 			<button className="btn btn-outline-danger" onClick={handleRemoveClick}>
-				Remove
+				<li>{todo.task}</li>
 			</button>
 		</div>
 	);

@@ -6,6 +6,7 @@ import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import TodoApp from "./components/TodoApp";
 import NotTodoApp from "./components/NotTodoApp";
+import BombApp from "./components/BombApp";
 
 ReactDOM.render(
 	<React.StrictMode>
@@ -14,6 +15,7 @@ ReactDOM.render(
 				<Route path="/" exact component={App} />
 				<Route path="/todo" component={TodoApp} />
 				<Route path="/nottodo" component={NotTodoApp} />
+				<Route path="/defuse" component={BombApp} />
 			</Switch>
 		</Router>
 	</React.StrictMode>,

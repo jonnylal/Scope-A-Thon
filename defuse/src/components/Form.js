@@ -29,7 +29,7 @@ const Form = ({ addTodo }) => {
 				onChange={handleTaskInputChange}
 			/>
 			<button className="btn btn-outline-danger btn-lg right-btn" type="submit">
-				Add another todo
+				Add another item
 			</button>
 		</form>
 	);

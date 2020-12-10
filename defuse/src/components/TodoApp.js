@@ -9,6 +9,7 @@ const LOCAL_STORAGE_KEY = "react-todo-list-todos";
 
 function TodoApp() {
 	const [todos, setTodos] = useState([]);
+	const [notTodos, setNotTodos] = useState([]);
 
 	useEffect(() => {
 		const storageTodos = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY));
@@ -28,6 +29,13 @@ function TodoApp() {
 		setTodos(todos.filter((todo) => todo.id !== id));
 	}
 
+	function addNotTodo(notTodo) {
+		setTodos([notTodo, ...notTodos]);
+	}
+	function removeNotTodo(id) {
+		setTodos(notTodos.filter((notTodo) => notTodo.id !== id));
+	}
+
 	function toggleComplete(id) {
 		setTodos(
 			todos.map((todo) => {
@@ -42,11 +50,45 @@ function TodoApp() {
 		);
 	}
 
-	// const todoItems = useMemo(() => {
-	// 	return todos.map((item) => {
-	// 		return <TodoList title={item.title} description={item.description} />;
-	// 	});
-	// }, [todos]);
+	function ViewControl(viewState) {
+		switch (viewState) {
+			case "todo":
+				return (
+					<div>
+						<h1>You'll have 15 minutes for each todo item</h1>
+
+						<Form addTodo={addTodo} />
+						<TodoList
+							todos={todos}
+							toggleComplete={toggleComplete}
+							removeTodo={removeTodo}
+						/>
+					</div>
+				);
+			case "notTodo":
+				return (
+					<div>
+						<h1>Now what not to do...</h1>
+
+						<Form addTodo={addNotTodo} />
+						<TodoList
+							todos={notTodos}
+							toggleComplete={toggleComplete}
+							removeTodo={removeNotTodo}
+						/>
+						<TodoList
+							todos={todos}
+							toggleComplete={toggleComplete}
+							removeTodo={removeTodo}
+						/>
+					</div>
+				);
+			default:
+				return null;
+		}
+	}
+
+	var viewState = "todo";
 
 	return (
 		<div className="Background">
@@ -54,23 +96,15 @@ function TodoApp() {
 				<img src={bomb} alt="bomb" />
 			</div>
 
-			<div className="App">
-				<h1>You'll have 15 minutes for each todo item</h1>
-				<div>
-					<Form addTodo={addTodo} />
-					<TodoList
-						todos={todos}
-						toggleComplete={toggleComplete}
-						removeTodo={removeTodo}
-					/>
-				</div>
-			</div>
+			<div className="App">{ViewControl(viewState)}</div>
 			<div>
-				<Link to="/nottodo">
-					<button type="button" className="btn btn-danger btn-lg right-btn">
-						Next...
-					</button>
-				</Link>
+				<button
+					type="button"
+					onClick={(viewState = "nottodo")}
+					className="btn btn-danger btn-lg right-btn"
+				>
+					Next...
+				</button>
 			</div>
 		</div>
 	);
