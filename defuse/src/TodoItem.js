@@ -5,7 +5,7 @@ function TodoItem(props) {
 		<div className="item">
 			<h2>{props.title}</h2>
 			<h3>{props.description}</h3>
-			<button onClick={props.handleClick}>Add to Cart</button>
+			<button onClick={props.handleClick}>Add wire</button>
 		</div>
 	);
 }
