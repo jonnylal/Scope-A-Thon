@@ -1,9 +1,22 @@
 import React from "react";
+import "../App.css";
 
-function Todo({ todo }) {
+function Todo({ todo, toggleComplete, removeTodo }) {
+	function handleCheckboxClick() {
+		toggleComplete(todo.id);
+	}
+
+	function handleRemoveClick() {
+		removeTodo(todo.id);
+	}
+
 	return (
 		<div>
-			<li>{todo.task}</li>
+			{/* <input type="checkbox" onClick={handleCheckboxClick} /> */}
+			<li className="bg-list">{todo.task}</li>
+			<button className="btn btn-outline-danger" onClick={handleRemoveClick}>
+				Remove
+			</button>
 		</div>
 	);
 }

@@ -26,6 +26,10 @@
 	}
 }
 
+.bg-list {
+	background-color: #282c34;
+	list-style-type: none;
+}
 .Background {
 	background-color: #282c34;
 	min-height: 100vh;
@@ -37,7 +41,7 @@
 	color: white;
 }
 
-.App-link {
+. .App-link {
 	color: #61dafb;
 }
 
