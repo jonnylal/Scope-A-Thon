@@ -5,8 +5,19 @@
 .App-logo {
 	height: 40vmin;
 	pointer-events: none;
+}
+
+.buffer {
 	margin-top: 7rem;
 	margin-bottom: 7rem;
+}
+
+.left-btn {
+	margin-right: 1rem;
+}
+
+.right-btn {
+	margin-left: 1rem;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -15,7 +26,7 @@
 	}
 }
 
-.App-header {
+.Background {
 	background-color: #282c34;
 	min-height: 100vh;
 	display: flex;

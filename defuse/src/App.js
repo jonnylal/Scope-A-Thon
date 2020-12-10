@@ -6,15 +6,15 @@ import { Link } from "react-router-dom";
 function App() {
 	return (
 		<div className="App">
-			<header className="App-header">
-				<div className="container">
+			<header className="Background">
+				<div className="container-fluid">
 					<h1>Defuse</h1>
-					<div className="App-logo">
+					<div className="buffer">
 						<img src={bomb} alt="bomb" />
 					</div>
 				</div>
 				<Link to="/todo">
-					<button type="button" class="btn btn-danger btn-lg">
+					<button type="button" className="btn btn-danger btn-lg">
 						Get started now or else...
 					</button>
 				</Link>

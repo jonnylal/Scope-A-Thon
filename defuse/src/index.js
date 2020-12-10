@@ -4,7 +4,8 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import TodoApp from "./TodoApp";
+import TodoApp from "./components/TodoApp";
+import NotTodoApp from "./components/NotTodoApp";
 
 ReactDOM.render(
 	<React.StrictMode>
@@ -12,6 +13,7 @@ ReactDOM.render(
 			<Switch>
 				<Route path="/" exact component={App} />
 				<Route path="/todo" component={TodoApp} />
+				<Route path="/nottodo" component={NotTodoApp} />
 			</Switch>
 		</Router>
 	</React.StrictMode>,
